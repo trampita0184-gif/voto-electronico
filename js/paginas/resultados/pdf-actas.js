@@ -78,7 +78,8 @@ async function exportarActasPdf() {
       doc.setFont("helvetica", "normal");
       doc.setFontSize(10);
       doc.text(`Mesa: N° ${mesa.numero}`, 15, y);
-      doc.text(`Fecha: ${eleccion.fecha || "____________"}`, pageW - 15, y, {
+      const fechaActa = eleccion.fecha ? eleccion.fecha.split("-").reverse().join("/") : "____________";
+      doc.text(`Fecha: ${fechaActa}`, pageW - 15, y, {
         align: "right",
       });
       y += 8;
